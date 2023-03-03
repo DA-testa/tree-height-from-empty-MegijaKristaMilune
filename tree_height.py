@@ -10,6 +10,7 @@ def compute_height(n, parents):
     #max_height = 0
     # Your code here
     #return max_height
+    
     h = numpy.zeros(n)
     maxh = -1
 
@@ -18,8 +19,8 @@ def compute_height(n, parents):
         l = i
         h_i = 1
 
-        while parents[l] != -1 :
-            if h[l] != 0 :
+        while parents[l] != -1:
+            if h[l] != 0:
                 h_i += h[l] - 1
                 break
 
@@ -47,27 +48,27 @@ def main():
     # call the function and output it's result
     input_type = input()
 
-    while input_type not in ['I', 'F']:
-        print("Invalid input type")
-        input_type = input("Enter 'i' or 'f': ")
+    if 'F' in input:
+        input_file = input()
+        input_file = "test/" + input_file
+        
+        
+        if 'a' not in input_file:
+            try:
+                with open(input_file, "r") as f:
+                    
+                    n = int(f.readline())
+                    parents = list(map(int, f.readline().split()))
+                    print(compute_height(n, parents))
 
-    if input_type in ['F']:
-        file_name = input("Name of the input file: ")
-        while 'a' in file_name:
-            print("enter a different name")
-            file_name = input("Name of the input file: ")
-        try:
-            with open(file_name, 'r') as f:
-                n = int(f.readline())
-                parents = list(map(int, f.readline().split()))
-        except FileNotFoundError:
-            print("File not found")
-            sys.exit()
-    else:
+            except FileNotFoundError:
+                return print("not found")
+
+    if 'I' in input_text:
         n = int(input())
         parents = list(map(int, input().split()))
 
-    print(compute_height(n, parents))
+        print(compute_height(n, parents))
 
 
 # In Python, the default limit on recursion depth is rather low,

@@ -6,7 +6,6 @@ import numpy
 
 
 def compute_height(n, parents):
-    ###
     h = {}
     for i in range(n):
         if i not in h:
@@ -22,7 +21,6 @@ def compute_height(n, parents):
                     break
             h[i] = height
     return max(h.values())
-    ###
     
 def main():
     input_text = input()

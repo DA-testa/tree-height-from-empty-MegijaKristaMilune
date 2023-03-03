@@ -34,9 +34,6 @@ def compute_height(n, parents):
 
     return maxh
 
-
-
-
 def main():
     # implement input form keyboard and from files
     

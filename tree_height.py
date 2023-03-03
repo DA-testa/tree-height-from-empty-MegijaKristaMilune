@@ -35,7 +35,7 @@ def main():
                     print(compute_height(n, parents))
 
             except FileNotFoundError:
-                return print("File_not_found_error")
+                return print("error")
 
     if 'I' in input_text:
         n = int(input())
@@ -45,6 +45,6 @@ def main():
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
 # of bigger stack, we have to launch the computation in a new thread.
-sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
+sys.setrecursionlimit(10**7)
+threading.stack_size(2**27) 
 threading.Thread(target=main).start()

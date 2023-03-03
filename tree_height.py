@@ -14,7 +14,7 @@ def compute_height(n, parents):
     maxh = -1
 
 
-    for i in range (len(parents));
+    for i in range (len(parents)):
         l = i
         h_i = 1
 
@@ -64,8 +64,8 @@ def main():
             print("File not found")
             sys.exit()
     else:
-        n = int(input(" "))
-        parents = list(map(int, input(" ").split()))
+        n = int(input())
+        parents = list(map(int, input().split()))
 
     print(compute_height(n, parents))
 

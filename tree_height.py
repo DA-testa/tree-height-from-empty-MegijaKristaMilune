@@ -18,7 +18,7 @@ def compute_height(n, par):
         while par[l] != -1:
             if h[l] != 0:
                 h_i += h[l] - 1
-                
+
                 break
             
 
@@ -39,6 +39,7 @@ def main():
     if 'F' in txt:
         file = input()
         file = "test/" + file
+
         if 'a' not in file:
             
             try:
@@ -47,14 +48,15 @@ def main():
                     par = list(map(int, f.readline().split()))
                     print(compute_height(n, par))
 
+
             except FileNotFoundError:
                 return print("not found")
 
-    if 'I' in input_text:
+
+    if 'I' in txt:
         n = int(input())
         par = list(map(int, input().split()))
         print(compute_height(n, par))
-
 
 
 sys.setrecursionlimit(10**7)

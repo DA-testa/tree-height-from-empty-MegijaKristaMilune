@@ -4,26 +4,27 @@ import numpy
 
 
 
-def compute_height(n, parents):
+def compute_height(n, par):
     h = numpy.zeros(n)
     maxh = -1
 
 
-    for i in range (len(parents)):
+    for i in range (len(par)):
         l = i
         h_i = 1
 
 
 
-        while parents[l] != -1 :
-            if h[l] != 0 :
+        while par[l] != -1:
+            if h[l] != 0:
                 h_i += h[l] - 1
+                
                 break
             
 
             h_i += 1
 
-            l = parents[l]
+            l = par[l]
 
         h[i] = h_i
         maxh = max(maxh, h[i])
@@ -33,26 +34,26 @@ def compute_height(n, parents):
 
 def main():
     
-    input_text = input()
+    txt = input()
 
-    if 'F' in input_text:
-        input_file = input()
-        input_file = "test/" + input_file
-        if 'a' not in input_file:
+    if 'F' in txt:
+        file = input()
+        file = "test/" + file
+        if 'a' not in file:
             
             try:
-                with open(input_file, "r") as f:
+                with open(file, "r") as f:
                     n = int(f.readline())
-                    parents = list(map(int, f.readline().split()))
-                    print(compute_height(n, parents))
+                    par = list(map(int, f.readline().split()))
+                    print(compute_height(n, par))
 
             except FileNotFoundError:
                 return print("not found")
 
     if 'I' in input_text:
         n = int(input())
-        parents = list(map(int, input().split()))
-        print(compute_height(n, parents))
+        par = list(map(int, input().split()))
+        print(compute_height(n, par))
 
 
 
